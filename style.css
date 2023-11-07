@@ -1,0 +1,51 @@
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #007acc; /* Blue color */
+  }
+  
+  #new-account-form {
+    background-color: #fff; /* White background for the form */
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #007acc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .error-message {
+    color: red;
+  }
+  
+  #output {
+    text-align: center;
+    color: #ff7700; /* Orange color */
+  }
+  
+  
+  input[type="email"], input[type="password"] {
+    width: 90%; /* Adjusted this bc it was to far right */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: #007acc; /* Blue color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #005a9c; /* Slightly darker blue color on hover */
+  }
+  

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>jQuery New Account Creation Form</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h1>jQuery New Account Creation Form</h1>
+<form id="new-account-form">
+  <p><input type="email" size="30" name="email" value="" placeholder="Enter your email address"></p>
+  <p><input type="password" size="30" name="password1" value="" placeholder="Enter a password"></p>
+  <p><input type="password" size="30" name="password2" value="" placeholder="Reenter the password"></p>
+  <button type="submit">Create Account</button>
+</form>
+<p><span id="output"></span></p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+function isValidEmail() {
+  const em = $.trim($("input[name='email']").val());
+  const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  return emailPattern.test(em);
+}
+
+function clearResults() {
+  $(".error-message").remove();
+  $("#output").empty();
+}
+
+$("input").focus(function() {
+  clearResults();
+});
+
+$("#new-account-form").submit(function(event) {
+  event.preventDefault(); // Prevent the form from reloading
+
+  clearResults();
+
+  const emailValid = isValidEmail();
+  const password1 = $("input[name='password1']").val();
+  const password2 = $("input[name='password2']").val();
+
+  if (!emailValid) {
+    $("input[name='email']").after("<span class='error-message'>Invalid email address</span>");
+  }
+
+  if (password1 !== password2 || password1 === '' || password2 === '') {
+    $("input[name='password1']").after("<span class='error-message'>Passwords must match and not be empty</span>");
+  } else {
+    // Passwords match, display output
+    $("#output").html("<p>Email: " + $("input[name='email']").val() + "</p><p>Passwords match</p>");
+  }
+});
+</script>
+</body>
+</html>
